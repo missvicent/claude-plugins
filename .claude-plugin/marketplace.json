@@ -1,0 +1,13 @@
+{
+  "name": "nily-plugins",
+  "owner": { "name": "Nily" },
+  "plugins": [
+    {
+      "name": "jira-flow",
+      "source": "./plugins/jira-flow",
+      "description": "Daily Jira flow: /jira-flow:story morning kickoff + /jira-flow:wrap-up approved progress comment",
+      "version": "1.1.0",
+      "category": "workflow"
+    }
+  ]
+}

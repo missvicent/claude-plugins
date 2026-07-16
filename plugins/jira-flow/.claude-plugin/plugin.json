@@ -1,0 +1,15 @@
+{
+  "name": "jira-flow",
+  "displayName": "Jira Flow",
+  "description": "Daily Jira flow: /jira-flow:story reads the ticket, its comments, and any linked Figma for a morning kickoff; /jira-flow:wrap-up posts an approved, high-level progress comment back to the ticket in its own language.",
+  "version": "1.1.0",
+  "author": { "name": "Nily" },
+  "keywords": ["jira", "atlassian", "figma", "workflow", "standup"],
+  "userConfig": {
+    "engineer_name": {
+      "type": "string",
+      "title": "Your name",
+      "description": "Wrap-up comments are written in first person as this person"
+    }
+  }
+}
