@@ -1,0 +1,9 @@
+{
+  "name": "quartermaster",
+  "displayName": "Quartermaster",
+  "description": "Tracker-agnostic story-to-review flow. /quartermaster:story kicks off an issue from Jira or Linear (detects the tracker, asks when unsure); /quartermaster:plan proposes a risk tier and file inventory; /quartermaster:review dispatches code + security reviews in parallel by tier, synthesizes findings, and records an approval fingerprinted to the exact diff.",
+  "version": "1.1.0",
+  "author": { "name": "Nily" },
+  "keywords": ["orchestration", "review", "security", "parallel", "jira", "linear", "workflow"],
+  "userConfig": {}
+}
