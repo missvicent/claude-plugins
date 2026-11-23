@@ -1,0 +1,9 @@
+{"feature":"bench","title":"Bench Lesson","as_of":"2026-11-22",
+ "tasks":[
+  {"task":"Write `bench.py`","status":"done","by":"agent",
+   "goal":"bench.py exists","check":{"kind":"run","cmd":"test -f bench.py","expect":"exit 0"}},
+  {"task":"Record the benchmark","status":"wip","by":"agent",
+   "goal":"A latency line for each framework is recorded.",
+   "check":{"kind":"ask","cmd":"python bench.py","expect":"latency"},
+   "now":"Script ready"}
+ ]}

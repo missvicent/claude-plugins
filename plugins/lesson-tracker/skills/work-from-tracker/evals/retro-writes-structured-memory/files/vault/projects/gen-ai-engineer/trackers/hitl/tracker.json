@@ -1,0 +1,91 @@
+{
+ "feature": "hitl",
+ "title": "Human Pause HITL",
+ "as_of": "2026-11-21",
+ "meta": {
+  "Time": "~75 min first pass \u00b7 budget ~3.5 h"
+ },
+ "tasks": [
+  {
+   "task": "Write `decide_node`",
+   "status": "done",
+   "by": "you",
+   "goal": "decide returns answer or pending",
+   "check": {
+    "kind": "run",
+    "cmd": "make test-integration",
+    "expect": "passed"
+   },
+   "log": [
+    {
+     "date": "2026-11-19",
+     "result": "fail",
+     "note": "decide called with one arg: TypeError"
+    },
+    {
+     "date": "2026-11-19",
+     "result": "pass",
+     "note": "decide_node ok"
+    }
+   ]
+  },
+  {
+   "task": "Wire the graph",
+   "status": "done",
+   "by": "you",
+   "goal": "10 integration tests pass",
+   "check": {
+    "kind": "run",
+    "cmd": "make test-integration",
+    "expect": "10 passed"
+   },
+   "log": [
+    {
+     "date": "2026-11-20",
+     "result": "fail",
+     "note": "used add_edge where add_node was needed: unknown node 'approve'"
+    },
+    {
+     "date": "2026-11-20",
+     "result": "fail",
+     "note": "missing edge approve -> run_tool: 4 resume tests fail"
+    },
+    {
+     "date": "2026-11-20",
+     "result": "pass",
+     "note": "10 passed"
+    }
+   ]
+  },
+  {
+   "task": "Kill and resume live",
+   "status": "done",
+   "by": "agent",
+   "goal": "resume in a new process",
+   "check": {
+    "kind": "ask",
+    "cmd": "make live",
+    "expect": "deleted"
+   },
+   "log": [
+    {
+     "date": "2026-11-21",
+     "result": "pass",
+     "note": "thread resumed, model not re-asked"
+    }
+   ]
+  }
+ ],
+ "decisions": [
+  {
+   "question": "Which model for the live run?",
+   "options": [
+    "qwen3.5:9b",
+    "Claude"
+   ],
+   "task": 3,
+   "status": "decided",
+   "answer": "qwen3.5:9b"
+  }
+ ]
+}

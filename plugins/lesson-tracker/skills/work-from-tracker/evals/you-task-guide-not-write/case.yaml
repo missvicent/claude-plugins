@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: you-task-guide-not-write
+expected_outcome: |
+  The task is by "you", so the agent explains how to write route using the task's shapes and steps, but does not write route's code into graph.py and does not give a complete ready-to-paste implementation. It does not mark the task done.
+context:
+  scaffold_script: place-files.sh

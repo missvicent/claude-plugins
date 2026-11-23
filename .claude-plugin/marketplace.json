@@ -1,7 +1,9 @@
 {
   "name": "nily-plugins",
   "description": "Nily's personal Claude Code plugins — installable workflow automations for daily engineering rituals.",
-  "owner": { "name": "Nily" },
+  "owner": {
+    "name": "Nily"
+  },
   "plugins": [
     {
       "name": "jira-flow",
@@ -16,6 +18,13 @@
       "description": "Tracker-agnostic story-to-review flow: /quartermaster:story kicks off an issue from Jira or Linear (detects the tracker, asks when unsure); /quartermaster:plan proposes a risk tier + file inventory; /quartermaster:review dispatches code + security reviews by tier and fingerprints the approval to the exact diff",
       "version": "1.1.0",
       "category": "workflow"
+    },
+    {
+      "name": "lesson-tracker",
+      "source": "./plugins/lesson-tracker",
+      "description": "Trackers agents and humans both work against: every task has an owner (you or an agent), a testable goal and a check; agents do or teach the work by those rules, log every check, and write typed lessons into an Obsidian agent memory at retro time.",
+      "version": "1.0.0",
+      "category": "learning"
     }
   ]
 }

@@ -1,15 +1,17 @@
 # Using the plugins
 
-Two plugins live in this marketplace. `jira-flow` is the original, Jira-only flow;
+Three plugins live in this marketplace. `jira-flow` is the original, Jira-only flow;
 `quartermaster` is its evolution — the same kickoff idea but tracker-agnostic (Jira **or**
-Linear), plus risk-tiered parallel review.
+Linear), plus risk-tiered parallel review. `lesson-tracker` is separate: progress trackers
+that an agent and a human both work against, with an Obsidian agent memory.
 
 | Plugin | Trackers | Commands |
 |---|---|---|
 | `jira-flow` | Jira only | `/jira-flow:story`, `/jira-flow:wrap-up` |
 | `quartermaster` | Jira **or** Linear | `/quartermaster:story`, `/quartermaster:plan`, `/quartermaster:review` |
+| `lesson-tracker` | none (any brief: lesson card, plan, card) | `/lesson-tracker:task-tracker`, `/lesson-tracker:work-from-tracker` |
 
-You can install either or both — they don't conflict.
+You can install any of them — they don't conflict.
 
 ## 1. Register the marketplace (once)
 
@@ -28,6 +30,7 @@ To pull updates later: `/plugin marketplace update nily-plugins`.
 ```
 /plugin install jira-flow@nily-plugins
 /plugin install quartermaster@nily-plugins
+/plugin install lesson-tracker@nily-plugins
 ```
 
 Both ask for your name once at install (`engineer_name`) — wrap-up/kickoff comments are written
@@ -106,3 +109,52 @@ longer matches, so a stale approval can't ride along.
 > **Note:** `plan` and `review` expect a review harness in the workspace
 > (`.local/preflight.sh`, `.local/<KEY>/assumptions.md`). `story` creates the assumptions file;
 > the gate script is yours to provide.
+
+---
+
+## lesson-tracker — learning by hand, with an agent
+
+No tracker MCP needed. The data lives in your Obsidian vault.
+
+### First use: pick your vault
+
+The first time it needs the vault, the agent reads Obsidian's own vault list and asks you to
+pick one by number (`vault.py setup`). It's saved in `~/.config/lesson-tracker/config.json`.
+The first tracker made from a repo also asks which vault project (`projects/<name>`) the repo
+belongs to, once.
+
+### `/lesson-tracker:task-tracker`
+
+Paste a lesson card, point at a plan, or share a Linear / Jira card. It builds the tracker:
+one task per deliverable, each with an owner (**you** or **agent**), a one-sentence goal, a
+check (`run` / `ask` / `review`), the data shapes and plain-word steps. Open questions go in
+**decisions** at the top of the page, not into a silent choice. It publishes the page as an
+Artifact (the same link on every update) and writes `tracker.json` + `tracker.md` to
+`<vault>/projects/<project>/trackers/<feature>/`. Before writing tasks it reads matching
+insights from earlier lessons, so a known pitfall shows up in the right task.
+
+### `/lesson-tracker:work-from-tracker`
+
+Say "let's do task 2", "continue", "check task 3" or "is this done?".
+
+- **Your task**: it shows the shapes, walks the steps one at a time, reviews your code
+  against the goal, and doesn't write it unless you ask.
+- **Its task**: it does it, as a fixed workflow or, when the path is unknown, through a
+  subagent; either way it runs the check itself.
+- A task is done only when its check passes in this session. A failed check stays in progress,
+  with the failure on the page.
+
+### Retro
+
+When the last task is done it offers a retro. On yes it writes `retros/YYYY-MM-DD-<lesson>.md`
+(fixed properties and sections) and confirms, adds or retires notes in `insights/`. An
+insight confirmed twice becomes a proposed edit to a skill; you approve it.
+
+### Typical flow
+
+```
+/lesson-tracker:task-tracker          # paste the lesson card
+# "let's do task 1" ... "check task 1" ... "continue"
+# "let's do the retro"
+```
+

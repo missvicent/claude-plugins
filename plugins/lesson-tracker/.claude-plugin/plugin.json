@@ -1,0 +1,9 @@
+{
+  "name": "lesson-tracker",
+  "displayName": "Lesson Tracker",
+  "description": "Trackers that agents and humans both work against: /lesson-tracker:task-tracker builds a progress page where every task has an owner (you or an agent), a testable goal and a check; /lesson-tracker:work-from-tracker does or teaches the work by those rules, logs every check, and runs a retro that writes typed lessons into an Obsidian agent memory.",
+  "version": "1.0.0",
+  "author": { "name": "Nily" },
+  "keywords": ["tracker", "learning", "obsidian", "agent-memory", "teaching", "workflow"],
+  "userConfig": {}
+}

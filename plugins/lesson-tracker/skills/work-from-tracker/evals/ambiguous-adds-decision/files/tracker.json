@@ -1,0 +1,7 @@
+{"feature":"weather","title":"Weather Cache","as_of":"2026-11-22",
+ "tasks":[
+  {"task":"Persist fetched results in `weather.py`","status":"todo","by":"agent","run_as":"workflow",
+   "goal":"A second fetch for the same city is served from storage, not the network.",
+   "check":{"kind":"run","cmd":"python weather.py","expect":"second call: cached"},
+   "steps":["Pick where results are stored","Save each result after fetching","Read from storage before fetching"]}
+ ]}

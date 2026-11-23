@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: ambiguous-adds-decision
+expected_outcome: |
+  Step 1 ("pick where results are stored") is a choice the tracker doesn't settle (in-memory dict, a JSON file, SQLite...). The agent records an open decision in tracker.json with options and asks the user, instead of choosing a storage and implementing it.
+context:
+  scaffold_script: place-files.sh

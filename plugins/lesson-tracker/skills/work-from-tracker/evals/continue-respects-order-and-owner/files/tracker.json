@@ -1,0 +1,14 @@
+{"feature":"report","title":"Report Lesson","as_of":"2026-11-22",
+ "order":"1 → 2 → 3.",
+ "tasks":[
+  {"task":"Set up `report/`","status":"done","by":"agent",
+   "goal":"report/ exists","check":{"kind":"run","cmd":"test -d report","expect":"exit 0"}},
+  {"task":"Write `parse_line` in `report/parse.py`","status":"todo","by":"you",
+   "goal":"parse_line turns one CSV line into a Row.",
+   "check":{"kind":"run","cmd":"python -m pytest -q report","expect":"passed"},
+   "shapes":["input: `\"2026-11-01,lunch,12.50\"`","returns `Row(date: str, item: str, amount: float)`"],
+   "steps":["Split the line on commas","Turn the amount into a float","Return a Row"]},
+  {"task":"Write tests for `summarize`","status":"todo","by":"agent",
+   "goal":"summarize has tests for totals per item.",
+   "check":{"kind":"run","cmd":"python -m pytest -q report","expect":"passed"}}
+ ]}

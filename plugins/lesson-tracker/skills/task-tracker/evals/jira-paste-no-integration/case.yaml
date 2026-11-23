@@ -1,0 +1,4 @@
+schema_version: "1.1"
+name: jira-paste-no-integration
+expected_outcome: |
+  A universal-client tracker with meta Card PROJ-42, tasks taken from the acceptance criteria, and statuses checked against client.py: the four functions exist, there are no tests. A PDF copy exists.

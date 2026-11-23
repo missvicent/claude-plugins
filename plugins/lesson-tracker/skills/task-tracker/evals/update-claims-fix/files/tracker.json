@@ -1,0 +1,48 @@
+{
+  "feature": "link-shortener",
+  "title": "Link Shortener Work",
+  "heading": "Build a link shortener that never loses a link",
+  "eyebrow": "LAB.2",
+  "tags": [
+    "faded",
+    "proves implement"
+  ],
+  "brief": "Write the store behind the shortener and the checks that prove it: every code maps to one URL, a deleted code is never reused, expired links return 410, and each visit is counted once. Then load it at 10, 100 and 1000 links, checking the counts at each step.",
+  "meta": {
+    "Repo": "`phase2-web/02-link-shortener`",
+    "Code": "`labs/link-shortener`",
+    "Time": "~60 min · ~2 h first pass"
+  },
+  "as_of": "2026-10-27",
+  "tasks": [
+    {
+      "task": "Implement the store in `src/store.py`",
+      "status": "done",
+      "details": [
+        "`add` and `delete`; deleted codes kept in `DELETED`"
+      ]
+    },
+    {
+      "task": "Implement the checks in `src/checks.py`",
+      "status": "wip",
+      "details": [
+        "`one_url_per_code`, `never_reused`, `expired_status`, `count_visits`",
+        "Done when `python -m pytest -q tests` passes"
+      ],
+      "now": "All 4 written; 1 problem open, listed below"
+    },
+    {
+      "task": "Load at 10, 100 and 1000 links in `src/load.py`",
+      "status": "todo"
+    }
+  ],
+  "problems_heading": "Open problems in `src/checks.py`",
+  "problems": [
+    {
+      "problem": "`never_reused` only looks at `STORE`, so a deleted code reads as free",
+      "where": "`never_reused`",
+      "severity": "bad"
+    }
+  ],
+  "order": "2 → 3."
+}

@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: reuse-insights-on-build
+expected_outcome: |
+  Before writing tasks, the agent queries the vault's active insights for this lesson's topics. The active crewai-needs-py312 insight shows up in the setup task (Python 3.12 pinned in its goal, details or steps). The retired pydantic-ai v1 decorator insight does not appear anywhere in the tracker, and the unrelated rag insight is not used. The tracker folder is created in the vault at projects/gen-ai-engineer/trackers/framework-bakeoff/. The reply names the insight it used.
+context:
+  scaffold_script: place-files.sh

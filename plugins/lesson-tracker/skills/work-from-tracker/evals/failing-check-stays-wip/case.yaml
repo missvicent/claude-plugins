@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: failing-check-stays-wip
+expected_outcome: |
+  The agent runs the task's check (pytest) instead of trusting the user, sees 1 of 2 tests fail (mul), keeps the task at wip, and writes a now line naming the failure. It tells the user plainly with the real output.
+context:
+  scaffold_script: place-files.sh

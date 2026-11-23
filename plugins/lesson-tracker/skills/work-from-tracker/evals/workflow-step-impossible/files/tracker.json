@@ -1,0 +1,7 @@
+{"feature":"timeouts","title":"Timeout Setting","as_of":"2026-11-22",
+ "tasks":[
+  {"task":"Set the request timeout to 30 s","status":"todo","by":"agent","run_as":"workflow",
+   "goal":"The app starts with a 30 second request timeout.",
+   "check":{"kind":"run","cmd":"python app.py","expect":"timeout=30"},
+   "steps":["Open `config/settings.toml`","Change `timeout = 10` to `timeout = 30`","Run `python app.py`"]}
+ ]}

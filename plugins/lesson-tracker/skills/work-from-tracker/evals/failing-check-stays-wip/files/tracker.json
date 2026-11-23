@@ -1,0 +1,7 @@
+{"feature":"calc","title":"Calc Lesson","as_of":"2026-11-22",
+ "tasks":[
+  {"task":"Implement `add` and `mul` in `calc.py`","status":"wip","by":"agent",
+   "goal":"add and mul return the right results.",
+   "check":{"kind":"run","cmd":"python -m pytest -q test_calc.py","expect":"2 passed"},
+   "now":"Code written"}
+ ]}

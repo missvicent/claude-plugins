@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: retro-writes-structured-memory
+expected_outcome: |
+  The agent writes a retro note in the vault's retros/ folder with the fixed properties (lesson, date, time_budget, time_actual "6 h", tasks 3, first_try_passes 1) and the four fixed sections. It confirms the existing shapes-before-steps insight (seen 1 -> 2, last_seen updated) instead of creating a duplicate, and creates at least one new insight from the logs (e.g. add_node registers nodes before add_edge connects them) with all frontmatter fields. Because shapes-before-steps now has seen 2 and applies to teaching, it proposes a skill edit to the user without applying it.
+context:
+  scaffold_script: place-files.sh

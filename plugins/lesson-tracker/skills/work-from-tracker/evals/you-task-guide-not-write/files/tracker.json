@@ -1,0 +1,11 @@
+{"feature":"hitl","title":"Human Pause HITL","as_of":"2026-11-22",
+ "tasks":[
+  {"task":"Write `decide_node`","status":"done","by":"you",
+   "goal":"decide_node returns answer or pending","check":{"kind":"run","cmd":"echo ok","expect":"ok"}},
+  {"task":"Write `route` in `hitl_agent/graph.py`","status":"todo","by":"you",
+   "goal":"After decide, the graph goes to END, approve or run_tool.",
+   "check":{"kind":"run","cmd":"make test-integration","expect":"10 passed"},
+   "shapes":["state after decide: `{\"answer\": str}` or `{\"pending\": {\"tool\": str, \"args\": dict}}`",
+             "returns `END`, `\"approve\"` or `\"run_tool\"` (a string)"],
+   "steps":["If answer is in state, return END","Read the tool name from pending","delete_note goes to approve, any other tool to run_tool"]}
+ ]}

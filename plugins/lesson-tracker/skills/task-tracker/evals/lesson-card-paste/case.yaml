@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: lesson-card-paste
+expected_outcome: |
+  A link-shortener tracker whose brief is the card's paragraph verbatim, with LAB.2 / tags / repo / time mapped, and task statuses that match the code: the store done, the checks in progress (test_deleted_code_is_never_reused fails), the load step still stubs. HTML, Markdown and PDF copies exist.
+context:
+  scaffold_script: place-files.sh

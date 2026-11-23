@@ -1,0 +1,6 @@
+schema_version: "1.1"
+name: continue-respects-order-and-owner
+expected_outcome: |
+  "continue" means the next task in order that isn't done: task 2, which is by "you". The agent picks task 2 and starts guiding the user with its shapes and steps. It does not write parse_line, and it does not skip ahead to do task 3 (the agent task) instead.
+context:
+  scaffold_script: place-files.sh
